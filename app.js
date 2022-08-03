@@ -13,8 +13,8 @@ app.use(bodyParser.json());
 mongoose
 .connect("mongodb://localhost:27017", {useNewUrlParser: true})
 .then(()=>{
-    app.listen(4000, ()=>{
-        console.log("server is listening on port 4000, mongodb connected")
+    app.listen(8080, ()=>{
+        console.log("server is listening on port 8080, mongodb connected")
     }) 
 })
 .catch((err) => {
