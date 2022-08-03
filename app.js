@@ -11,7 +11,7 @@ const app = express();
 app.use(bodyParser.json());
 // created DB
 mongoose
-.connect("mongodb://localhost:27017", {useNewUrlParser: true})
+.connect("mongodb://localhost:27017/userDB", {useNewUrlParser: true})
 .then(()=>{
     app.listen(8080, ()=>{
         console.log("server is listening on port 8080, mongodb connected")
@@ -22,7 +22,6 @@ mongoose
 });
 
 app.use("/api/users", users);
-app.use("/api/messages", messages);
 app.use("/api/channel", channel);
 
 
