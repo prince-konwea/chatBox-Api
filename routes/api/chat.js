@@ -15,7 +15,7 @@ router.post("/createChat", (req, res) => {
         .catch(err => console.log(err));
 });
 router.get("/allChat", (req, res) => {
-    Chat.find().populate('userId').exec((err, chat) => {
+    Chat.find().populate('userId channelId').exec((err, chat) => {
         if (err) {
             console.log(err);
         } else {

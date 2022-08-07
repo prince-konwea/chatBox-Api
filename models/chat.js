@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const ChatSchema = new Schema({
   channelId: {
     type: Array,
-    ref: 'channels',
+    ref: 'channel',
     required: true,
   },
 
