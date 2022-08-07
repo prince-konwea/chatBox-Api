@@ -2,6 +2,8 @@ const express = require ("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 
+require("dotenv").config();
+
 const users = require("./routes/api/users");
 const channel = require("./routes/api/channel");
 
@@ -15,8 +17,8 @@ const dbUrl = process.env.NODE_ENV==='development'? "mongodb://localhost:27017/m
 mongoose
 .connect(dbUrl, {useNewUrlParser: true})
 .then(()=>{
-    app.listen(8080, ()=>{
-        console.log("server is listening on port 8080, mongodb connected")
+    app.listen(process.env.PORT||8080, ()=>{
+        console.log(`server is listening on port ${process.env.PORT}, mongodb connected`);
     }) 
 })
 .catch((err) => {
