@@ -6,6 +6,7 @@ require("dotenv").config();
 
 const users = require("./routes/api/users");
 const channel = require("./routes/api/channel");
+const chat = require("./routes/api/chat")
 
 const app = express();
 
@@ -26,6 +27,7 @@ mongoose
 });
 
 app.use("/api/users", users);
+app.use('/api/chats', chat);
 app.use("/api/channels", channel);
 
 

@@ -3,6 +3,7 @@ const channel = require("../../models/channel");
 const router = express.Router();
 const Channel = require("../../models/channel");
 
+
 router.get("/test", (req, res) => res.json({ msg: "channel routes works!" }))
 
 router.post('/channels/create', (req, res) => {
@@ -46,5 +47,7 @@ router.post("/leaveChannel", (req, res) => {
                 .catch(err => console.log(err));
         }).catch(err => console.log (err))
 });
+
+
 
 module.exports = router;
