@@ -3,15 +3,17 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 
 const users = require("./routes/api/users");
-const messages = require("./routes/api/messages");
 const channel = require("./routes/api/channel");
 
 const app = express();
 
+app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json());
-// created DB
+
+const dbUrl = process.env.NODE_ENV==='development'? "mongodb://localhost:27017/messageDb" : process.env.dbUrl
+
 mongoose
-.connect("mongodb://localhost:27017/userDB", {useNewUrlParser: true})
+.connect(dbUrl, {useNewUrlParser: true})
 .then(()=>{
     app.listen(8080, ()=>{
         console.log("server is listening on port 8080, mongodb connected")
