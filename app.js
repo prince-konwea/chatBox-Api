@@ -26,7 +26,7 @@ mongoose
 });
 
 app.use("/api/users", users);
-app.use("/api/channel", channel);
+app.use("/api/channels", channel);
 
 
 
